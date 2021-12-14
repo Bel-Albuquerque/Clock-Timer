@@ -7,6 +7,10 @@ function TimerProvider({ children }) {
   const [minuto, setMinuto] = useState(0);
   const [segundo, setSegundo] = useState(0);
   const [colon, setColon] = useState(':');
+  const [inputHora, setInputHora] = useState(0);
+  const [inputMinuto, setInputMinuto] = useState(0);
+  const [inputSegundo, setInputSegundo] = useState(0);
+  const [startTimer, setStartTimer] = useState(false);
 
   useEffect(() => {
     setColon(colon === ':' ? '' : ':');
@@ -20,6 +24,14 @@ function TimerProvider({ children }) {
     setMinuto,
     segundo,
     setSegundo,
+    inputHora,
+    setInputHora,
+    inputMinuto,
+    setInputMinuto,
+    inputSegundo,
+    setInputSegundo,
+    startTimer,
+    setStartTimer,
   };
 
   return (
