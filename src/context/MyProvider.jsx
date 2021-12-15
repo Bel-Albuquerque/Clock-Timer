@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import MyContext from './MyContext';
 
-function TimerProvider({ children }) {
+function MyProvider({ children }) {
   const [hora, setHora] = useState(0);
   const [minuto, setMinuto] = useState(0);
   const [segundo, setSegundo] = useState(0);
@@ -41,8 +41,8 @@ function TimerProvider({ children }) {
   );
 }
 
-TimerProvider.propTypes = {
-  children: PropTypes.objectOf(PropTypes.any).isRequired,
+MyProvider.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
-export default TimerProvider;
+export default MyProvider;

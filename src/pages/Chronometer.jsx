@@ -1,6 +1,5 @@
 /* eslint-disable radix */
-import React, { useContext, useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useContext, useEffect, useState } from 'react';
 import MyContext from '../context/MyContext';
 import ClockDisplay from '../components/ClockDisplay';
 
