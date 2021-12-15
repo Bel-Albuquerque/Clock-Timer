@@ -11,6 +11,7 @@ function MyProvider({ children }) {
   const [inputMinuto, setInputMinuto] = useState(0);
   const [inputSegundo, setInputSegundo] = useState(0);
   const [startTimer, setStartTimer] = useState(false);
+  const [clock, setClock] = useState();
 
   useEffect(() => {
     setColon(colon === ':' ? '' : ':');
@@ -32,6 +33,8 @@ function MyProvider({ children }) {
     setInputSegundo,
     startTimer,
     setStartTimer,
+    clock,
+    setClock,
   };
 
   return (

@@ -7,6 +7,7 @@ import MyContext from '../context/MyContext';
 import ClockDisplay from '../components/ClockDisplay';
 import InputsTimer from '../components/TimerInputs';
 import InputButtonsTimer from '../components/InputButtonsTimer';
+import useToStartPage from '../hocks/useToStartPage';
 
 function Timer() {
   const {
@@ -26,7 +27,7 @@ function Timer() {
     setInputSegundo,
   } = useContext(MyContext);
 
-  const [startClock, setStartClock] = useState();
+  const [clock, setClock] = useState();
 
   const ZERO = 0;
   const ONE_SECOND = 1000;
@@ -38,11 +39,7 @@ function Timer() {
     return time.length === 1 ? `0${time}` : time;
   };
 
-  useEffect(() => {
-    setHora(twoDigits(0));
-    setMinuto(twoDigits(0));
-    setSegundo(twoDigits(0));
-  }, []);
+  useToStartPage();
 
   useEffect(() => {
     if (startTimer) {
@@ -52,41 +49,38 @@ function Timer() {
       setInputHora(0);
       setInputMinuto(0);
       setInputSegundo(0);
-      console.log(parseInt(minuto));
-      setStartClock(setInterval(() => {
+      setClock(setInterval(() => {
         setSegundo(twoDigits(localSegundo -= 1));
-        setBool(true);
       }, ONE_SECOND));
       setStartTimer(false);
     }
   }, [startTimer]);
 
   const endTimer = () => {
-    console.log('encerra timer');
     setHora(twoDigits(0));
     setMinuto(twoDigits(0));
     setSegundo(twoDigits(0));
 
-    clearInterval(startClock);
+    clearInterval(clock);
   };
 
   const secondAndMinuteIsZero = () => {
-    clearInterval(startClock);
+    clearInterval(clock);
     setSegundo(59);
     setMinuto(59);
     setHora(twoDigits(hora - 1));
 
-    setStartClock(setInterval(() => {
+    setClock(setInterval(() => {
       setSegundo(twoDigits(cinquentaEnove -= 1));
     }, ONE_SECOND));
   };
 
   const secondIsZero = () => {
-    clearInterval(startClock);
+    clearInterval(clock);
     setSegundo(twoDigits(59));
     setMinuto(twoDigits(minuto - 1));
 
-    setStartClock(setInterval(() => {
+    setClock(setInterval(() => {
       setSegundo(twoDigits(cinquentaEnove -= 1));
     }, ONE_SECOND));
   };

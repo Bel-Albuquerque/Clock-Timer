@@ -10,15 +10,11 @@ function InputButtons() {
     setStartTimer,
   } = useContext(MyContext);
 
-  const handleStart = () => {
-    setStartTimer(true);
-  };
-
   return (
     <nav>
       <button
         type="button"
-        onClick={ handleStart }
+        onClick={ () => setStartTimer(true) }
       >
         start
       </button>
