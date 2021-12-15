@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import MyContext from '../context/MyContext';
 import ClockDisplay from '../components/ClockDisplay';
+import twoDigits from '../functions/twoDigits';
 
 function Clock() {
   const {
@@ -8,11 +9,6 @@ function Clock() {
     setMinuto,
     setSegundo,
   } = useContext(MyContext);
-
-  const twoDigits = (param) => {
-    const time = param.toString();
-    return (time.length === 1 ? `0${time}` : time);
-  };
 
   useEffect(() => {
     const ONE_SECOND = 1000;
