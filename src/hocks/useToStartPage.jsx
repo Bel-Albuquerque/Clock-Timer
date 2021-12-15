@@ -1,10 +1,6 @@
 import { useContext, useEffect } from 'react';
 import MyContext from '../context/MyContext';
-
-const twoDigits = (param) => {
-  const time = param.toString();
-  return time.length === 1 ? `0${time}` : time;
-};
+import twoDigits from '../functions/twoDigits';
 
 const ONE_SECOND = 1000;
 let localSegundo = 0;

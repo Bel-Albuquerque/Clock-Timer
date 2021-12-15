@@ -1,4 +1,3 @@
-/* eslint-disable radix */
 import React, { useContext } from 'react';
 import MyContext from '../context/MyContext';
 import ClockDisplay from '../components/ClockDisplay';
